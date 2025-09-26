@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in · Virtual Tour Guide</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body class="auth-page">
+  <main class="auth-wrap">
+    <section class="auth-card" role="dialog" aria-labelledby="auth-title" aria-describedby="auth-desc">
+      <div class="brand">
+        <div class="logo">
+          <!-- simple SVG logo -->
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+            <path d="M12 2l3.5 7H23l-6 4.5L19 21l-7-4.5L5 21l2-7.5L1 9h7.5L12 2z" fill="currentColor" opacity="0.9"/>
+          </svg>
+        </div>
+        <div>
+          <h1 id="auth-title">Virtual Tour Guide</h1>
+          <p id="auth-desc" class="muted">Sign in to continue</p>
+        </div>
+      </div>
+
+      {% if error %}
+      <div class="alert" role="alert">
+        {{ error }}
+      </div>
+      {% endif %}
+
+      <form method="post" class="auth-form" autocomplete="off">
+        <label class="field">
+          <span>Username</span>
+          <div class="input-group">
+            <span class="icon" aria-hidden="true">👤</span>
+            <input name="user" placeholder="e.g., admin" required />
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <div class="input-group">
+            <span class="icon" aria-hidden="true">🔒</span>
+            <input id="pwd" name="pwd" type="password" placeholder="••••••••" required />
+            <button type="button" class="ghost" id="togglePwd" aria-label="Show password">👁️</button>
+          </div>
+        </label>
+
+        <div class="row-between">
+          <label class="check">
+            <input type="checkbox" />
+            <span>Remember me</span>
+          </label>
+          <a class="link" href="#" onclick="alert('Demo only');return false;">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Sign in</button>
+      </form>
+
+      <footer class="fineprint">
+        By continuing you agree to our <a class="link" href="#" onclick="alert('Demo only');return false;">terms</a>.
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // Password visibility toggle
+    const toggle = document.getElementById('togglePwd');
+    const pwd = document.getElementById('pwd');
+    if (toggle && pwd) {
+      toggle.addEventListener('click', () => {
+        const show = pwd.getAttribute('type') === 'password';
+        pwd.setAttribute('type', show ? 'text' : 'password');
+        toggle.textContent = show ? '🙈' : '👁️';
+        toggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+      });
+    }
+  </script>
+</body>
+</html>

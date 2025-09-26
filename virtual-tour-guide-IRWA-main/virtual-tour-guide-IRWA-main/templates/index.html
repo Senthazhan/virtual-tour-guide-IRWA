@@ -1,0 +1,176 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtual Tour Guide · Chat</title>
+  <link rel="stylesheet" href="/static/app.css" />
+  <!-- Markdown renderer + sanitizer -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+</head>
+<body class="chat-page">
+<header class="site-header">
+  <div class="brand">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M12 2l3.5 7H23l-6 4.5L19 21l-7-4.5L5 21l2-7.5L1 9h7.5L12 2z" fill="currentColor" opacity="0.9"/>
+      </svg>
+    </div>
+    <div class="brand-text">
+      <strong>Virtual Tour Guide</strong>
+      <span class="sub">Dialogue · IR · Itinerary · Safety</span>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <a class="link" href="/logout" title="Sign out">Logout</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="chips card">
+    <h2 class="card-title">Quick prompts</h2>
+    <div class="chip-row" id="static-chips">
+      <button class="chip" data-fill="Tell me about Sigiriya">About Sigiriya</button>
+      <button class="chip" data-fill="Tell me about Kandy">About Kandy</button>
+      <button class="chip" data-fill="Plan a 3-hour tour in Kandy">3-hour Kandy tour</button>
+      <button class="chip" data-fill="Plan a 2-hour tour in Galle">2-hour Galle tour</button>
+    </div>
+  </section>
+
+  <!-- live memory/status -->
+  <section class="card" id="status" style="display:none;">
+    <strong>Trip context:</strong>
+    <span id="ctx-city"></span>
+    <span id="ctx-mins"></span>
+  </section>
+
+  <section class="card chat-card">
+    <div class="chat-messages" id="messages" aria-live="polite"></div>
+
+    <form id="chat-form" class="composer" autocomplete="off">
+      <textarea id="input" class="input" rows="2" placeholder="Ask: Tell me about Sigiriya / Plan a 3-hour tour in Kandy" required></textarea>
+      <button id="sendBtn" class="btn-primary" type="submit">Send</button>
+    </form>
+
+    <details class="hint">
+      <summary>How it works (Responsible-AI trace)</summary>
+      <p>Agents exchange JSON envelopes; requests are audited & encrypted at rest. Profanity/harmful content is blocked and HTML/JS is sanitized.</p>
+    </details>
+  </section>
+</main>
+
+<script>
+  const form = document.getElementById('chat-form');
+  const input = document.getElementById('input');
+  const messages = document.getElementById('messages');
+  const sendBtn = document.getElementById('sendBtn');
+  const chips = document.getElementById('static-chips');
+
+  const statusBox = document.getElementById('status');
+  const ctxCity = document.getElementById('ctx-city');
+  const ctxMins = document.getElementById('ctx-mins');
+
+  function renderMarkdownSafe(md) {
+    const html = marked.parse(md || '');
+    return DOMPurify.sanitize(html);
+  }
+
+  function addBubble(text, who, suggestions = []) {
+    const div = document.createElement('div');
+    div.className = 'bubble ' + (who === 'user' ? 'user' : 'bot');
+
+    if (who === 'bot') {
+      div.innerHTML = renderMarkdownSafe(text);
+    } else {
+      div.innerText = text;
+    }
+    messages.appendChild(div);
+
+    // context-aware suggestion chips (from server)
+    if (who === 'bot' && suggestions && suggestions.length) {
+      const row = document.createElement('div');
+      row.className = 'chip-row';
+      suggestions.forEach(s => {
+        const b = document.createElement('button');
+        b.className = 'chip';
+        b.textContent = s;
+        b.addEventListener('click', () => {
+          input.value = s;
+          form.requestSubmit();
+        });
+        row.appendChild(b);
+      });
+      messages.appendChild(row);
+    }
+
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  // Enter to send; Shift+Enter for newline
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      form.requestSubmit();
+    }
+  });
+
+  // Prefill from static chips
+  chips.addEventListener('click', (e) => {
+    if (e.target.classList.contains('chip')) {
+      input.value = e.target.dataset.fill || e.target.textContent;
+      input.focus();
+    }
+  });
+
+  async function refreshState(){
+    try{
+      const r = await fetch('/state');
+      if(!r.ok) return;
+      const s = await r.json();
+      const has = (s.city || s.minutes);
+      statusBox.style.display = has ? 'block' : 'none';
+      ctxCity.textContent = s.city ? ` · City: ${s.city}` : '';
+      ctxMins.textContent = s.minutes ? ` · Time: ${s.minutes} min` : '';
+    }catch {}
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+
+    addBubble(text, 'user');
+    input.value = '';
+    input.disabled = true; sendBtn.disabled = true;
+
+    // simple typing indicator
+    const t = document.createElement('div');
+    t.className = 'bubble bot typing';
+    t.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+    messages.appendChild(t); messages.scrollTop = messages.scrollHeight;
+
+    try {
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ message: text })
+      });
+      const data = await res.json();
+      t.remove();
+      addBubble(data.reply || '(no reply)', 'bot', data.suggestions || []);
+      refreshState();
+    } catch (err) {
+      t.remove();
+      addBubble('Error contacting server. Please try again.', 'bot');
+    } finally {
+      input.disabled = false; sendBtn.disabled = false;
+      input.focus();
+    }
+  });
+
+  // initial state fetch
+  refreshState();
+</script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+{
+  "Sigiriya": {
+    "facts": [
+      "Sigiriya is a 5th-century rock fortress built by King Kashyapa.",
+      "It has frescoes and the Mirror Wall.",
+      "UNESCO World Heritage Site since 1982."
+    ],
+    "ticket": "Foreign adult ≈ USD 30 (varies); local pricing lower.",
+    "stops": [
+      {
+        "name": "Lion's Paw Terrace",
+        "minutes": 40
+      },
+      {
+        "name": "Frescoes Gallery",
+        "minutes": 30
+      },
+      {
+        "name": "Summit Gardens",
+        "minutes": 45
+      }
+    ]
+  },
+  "Kandy": {
+    "facts": [
+      "Kandy is famous for the Temple of the Tooth.",
+      "UNESCO World Heritage city surrounded by scenic hills.",
+      "Known for Kandy Lake and cultural shows."
+    ],
+    "ticket": "Temple of the Tooth: ~LKR 2000 for foreigners.",
+    "stops": [
+      {
+        "name": "Temple of the Tooth",
+        "minutes": 60
+      },
+      {
+        "name": "Kandy Lake Walk",
+        "minutes": 45
+      },
+      {
+        "name": "Bahirawakanda Buddha Statue",
+        "minutes": 45
+      }
+    ]
+  },
+  "Galle": {
+    "facts": [
+      "Galle Fort is a 16th-century fortress with Dutch influence.",
+      "Cobbled streets, ramparts, lighthouse, and colonial buildings.",
+      "UNESCO World Heritage Site."
+    ],
+    "ticket": "Free to walk the ramparts; museums/attractions may charge.",
+    "stops": [
+      {
+        "name": "Galle Lighthouse",
+        "minutes": 30
+      },
+      {
+        "name": "Ramparts Walk",
+        "minutes": 60
+      },
+      {
+        "name": "Dutch Reformed Church",
+        "minutes": 30
+      }
+    ]
+  },
+  "Colombo": {
+    "facts": [
+      "Commercial capital with mix of colonial and modern sites",
+      "Galle Face Green promenade is popular at sunset",
+      "National Museum holds key artifacts"
+    ],
+    "ticket": "Many sites free; museums 500-3000 LKR",
+    "stops": [
+      {
+        "name": "National Museum",
+        "minutes": 60
+      },
+      {
+        "name": "Galle Face Green",
+        "minutes": 30
+      },
+      {
+        "name": "Independence Square",
+        "minutes": 30
+      }
+    ]
+  },
+  "Anuradhapura": {
+    "facts": [
+      "Ancient capital with sacred Sri Maha Bodhi",
+      "UNESCO World Heritage City",
+      "Famous for huge stupas like Ruwanwelisaya"
+    ],
+    "ticket": "Site tickets vary by area/museum",
+    "stops": [
+      {
+        "name": "Sri Maha Bodhi",
+        "minutes": 40
+      },
+      {
+        "name": "Ruwanwelisaya",
+        "minutes": 45
+      },
+      {
+        "name": "Jethawanaramaya",
+        "minutes": 45
+      }
+    ]
+  },
+  "Polonnaruwa": {
+    "facts": [
+      "Medieval royal capital with well-preserved ruins",
+      "Gal Vihara Buddha statues are highlights",
+      "UNESCO World Heritage Site"
+    ],
+    "ticket": "Combined area tickets apply",
+    "stops": [
+      {
+        "name": "Gal Vihara",
+        "minutes": 40
+      },
+      {
+        "name": "Parakrama Samudra Tank",
+        "minutes": 30
+      },
+      {
+        "name": "Quadrangle",
+        "minutes": 45
+      }
+    ]
+  },
+  "Dambulla": {
+    "facts": [
+      "Known for cave temple complex with painted ceilings",
+      "UNESCO World Heritage Site",
+      "Good stop on cultural triangle route"
+    ],
+    "ticket": "Temple tickets apply",
+    "stops": [
+      {
+        "name": "Dambulla Cave Temple",
+        "minutes": 60
+      },
+      {
+        "name": "Golden Temple exterior",
+        "minutes": 20
+      },
+      {
+        "name": "Viewpoint climb",
+        "minutes": 20
+      }
+    ]
+  },
+  "Nuwara Eliya": {
+    "facts": [
+      "Tea country \"Little England\" vibe",
+      "Gregory Lake and colonial bungalows",
+      "Chilly climate year-round"
+    ],
+    "ticket": "Some gardens/parks ticketed",
+    "stops": [
+      {
+        "name": "Gregory Lake",
+        "minutes": 45
+      },
+      {
+        "name": "Victoria Park",
+        "minutes": 30
+      },
+      {
+        "name": "Tea Factory Tour",
+        "minutes": 60
+      }
+    ]
+  },
+  "Ella": {
+    "facts": [
+      "Scenic hill town with iconic Nine Arch Bridge",
+      "Great hikes to Little Adam’s Peak",
+      "Ravana Falls nearby"
+    ],
+    "ticket": "Most sites free",
+    "stops": [
+      {
+        "name": "Little Adam's Peak",
+        "minutes": 60
+      },
+      {
+        "name": "Nine Arch Bridge",
+        "minutes": 45
+      },
+      {
+        "name": "Ravana Falls",
+        "minutes": 30
+      }
+    ]
+  },
+  "Horton Plains": {
+    "facts": [
+      "National park with World's End viewpoint",
+      "Best visited early morning",
+      "Requires park permit and guide recommended"
+    ],
+    "ticket": "Park permit required",
+    "stops": [
+      {
+        "name": "Trail to World's End",
+        "minutes": 120
+      },
+      {
+        "name": "Baker's Falls",
+        "minutes": 45
+      },
+      {
+        "name": "Mini World's End",
+        "minutes": 30
+      }
+    ]
+  },
+  "Adam's Peak (Sri Pada)": {
+    "facts": [
+      "Sacred pilgrimage mountain",
+      "Climb usually at night for sunrise",
+      "Seasonal crowds"
+    ],
+    "ticket": "Free climb; donations welcome",
+    "stops": [
+      {
+        "name": "Nallathanniya trail start",
+        "minutes": 30
+      },
+      {
+        "name": "Midway rest points",
+        "minutes": 20
+      },
+      {
+        "name": "Summit Shrine",
+        "minutes": 60
+      }
+    ]
+  },
+  "Yala National Park": {
+    "facts": [
+      "Top wildlife park for leopards and elephants",
+      "Safari by jeep with guides",
+      "Best early morning or late afternoon"
+    ],
+    "ticket": "Park entry + jeep hire",
+    "stops": [
+      {
+        "name": "Yala Safari Gate",
+        "minutes": 20
+      },
+      {
+        "name": "Safari Drive (loop)",
+        "minutes": 150
+      },
+      {
+        "name": "Beach viewpoint",
+        "minutes": 20
+      }
+    ]
+  },
+  "Udawalawe National Park": {
+    "facts": [
+      "Excellent for elephant sightings",
+      "Smaller and often less crowded than Yala",
+      "Safari by jeep"
+    ],
+    "ticket": "Park entry + jeep hire",
+    "stops": [
+      {
+        "name": "Elephant Transit Home",
+        "minutes": 40
+      },
+      {
+        "name": "Safari Drive",
+        "minutes": 150
+      },
+      {
+        "name": "Reservoir View",
+        "minutes": 20
+      }
+    ]
+  },
+  "Mirissa": {
+    "facts": [
+      "Beach town famous for whale watching",
+      "Sheltered bay with good swimming",
+      "Coconut Tree Hill viewpoint"
+    ],
+    "ticket": "Beach free; whale tours paid",
+    "stops": [
+      {
+        "name": "Whale Watching Jetty",
+        "minutes": 180
+      },
+      {
+        "name": "Mirissa Beach",
+        "minutes": 60
+      },
+      {
+        "name": "Coconut Tree Hill",
+        "minutes": 30
+      }
+    ]
+  },
+  "Hikkaduwa": {
+    "facts": [
+      "Surf and snorkel destination",
+      "Turtle hatcheries nearby",
+      "Coral sanctuary area"
+    ],
+    "ticket": "Beach free; sanctuary ticketed",
+    "stops": [
+      {
+        "name": "Coral Sanctuary",
+        "minutes": 45
+      },
+      {
+        "name": "Turtle Hatchery",
+        "minutes": 40
+      },
+      {
+        "name": "Hikkaduwa Beach",
+        "minutes": 60
+      }
+    ]
+  },
+  "Unawatuna": {
+    "facts": [
+      "Family-friendly beach near Galle",
+      "Jungle Beach short hike",
+      "Popular for snorkeling"
+    ],
+    "ticket": "Beach free",
+    "stops": [
+      {
+        "name": "Unawatuna Beach",
+        "minutes": 60
+      },
+      {
+        "name": "Jungle Beach",
+        "minutes": 60
+      },
+      {
+        "name": "Japanese Peace Pagoda",
+        "minutes": 30
+      }
+    ]
+  },
+  "Trincomalee": {
+    "facts": [
+      "East coast port city with beaches",
+      "Koneswaram Temple on Swami Rock",
+      "Famous for Nilaveli & Pigeon Island"
+    ],
+    "ticket": "Koneswaram may accept donations",
+    "stops": [
+      {
+        "name": "Koneswaram Temple",
+        "minutes": 45
+      },
+      {
+        "name": "Swami Rock View",
+        "minutes": 30
+      },
+      {
+        "name": "Nilaveli Beach",
+        "minutes": 90
+      }
+    ]
+  },
+  "Jaffna": {
+    "facts": [
+      "Northern cultural center with unique cuisine",
+      "Jaffna Fort and Nallur Kovil highlights",
+      "Best Nov–Apr for weather"
+    ],
+    "ticket": "Most temples free",
+    "stops": [
+      {
+        "name": "Jaffna Fort",
+        "minutes": 45
+      },
+      {
+        "name": "Nallur Kandaswamy Kovil",
+        "minutes": 45
+      },
+      {
+        "name": "Public Library exterior",
+        "minutes": 20
+      }
+    ]
+  },
+  "Bentota": {
+    "facts": [
+      "Resort area with water sports",
+      "Brief Garden by Bevis Bawa nearby",
+      "Calm lagoon for boating"
+    ],
+    "ticket": "Beach free; gardens ticketed",
+    "stops": [
+      {
+        "name": "Bentota Beach",
+        "minutes": 60
+      },
+      {
+        "name": "Brief Garden",
+        "minutes": 60
+      },
+      {
+        "name": "Lagoon Boat",
+        "minutes": 60
+      }
+    ]
+  },
+  "Arugam Bay": {
+    "facts": [
+      "Surf capital on the east coast",
+      "Best waves May–Oct",
+      "Laid-back vibe"
+    ],
+    "ticket": "Beach free",
+    "stops": [
+      {
+        "name": "Main Point Surf",
+        "minutes": 90
+      },
+      {
+        "name": "Elephant Rock",
+        "minutes": 60
+      },
+      {
+        "name": "Lagoon Safari",
+        "minutes": 60
+      }
+    ]
+  },
+  "Pinnawala Elephant Orphanage": {
+    "facts": [
+      "Sanctuary for rescued elephants",
+      "River bathing time is popular",
+      "Near Kegalle on Colombo–Kandy road"
+    ],
+    "ticket": "Entrance ticket applies",
+    "stops": [
+      {
+        "name": "Orphanage Grounds",
+        "minutes": 60
+      },
+      {
+        "name": "River Bathing Spot",
+        "minutes": 45
+      },
+      {
+        "name": "Feeding Area",
+        "minutes": 30
+      }
+    ]
+  }
+}
